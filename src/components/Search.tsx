@@ -24,8 +24,6 @@ const SearchDump: SearchType = ({ fetchCities, city }) => {
     setInputValue(value);
   };
 
-  console.log(city);
-
   return (
     <Container>
       <Input
@@ -33,12 +31,12 @@ const SearchDump: SearchType = ({ fetchCities, city }) => {
         value={inputValue}
         onChange={(event) => onInputChange(event.target.value)}
       />
-      {/* <div>
+      <div>
         Погода -
         {city.weather ? city?.weather[0].main : "Такого города не найдено"}
       </div>
       <div>Местоположение - {city.name ?? "Такого города не найдено"}</div>
-      <div>Страна - {city?.sys?.country ?? "Такого города не найдено"}</div> */}
+      <div>Страна - {city?.sys?.country ?? "Такого города не найдено"}</div>
     </Container>
   );
 };
