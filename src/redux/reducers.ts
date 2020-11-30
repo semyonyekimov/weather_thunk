@@ -1,15 +1,10 @@
+import { initialCitiesStateTypes } from "./types";
 import { combineReducers } from "redux";
 import {
   FETCH_CITIES_FAILURE,
   FETCH_CITIES_REQUEST,
   FETCH_CITIES_SUCCESS,
 } from "./actions";
-
-type initialCitiesStateTypes = {
-  request: boolean;
-  cities: object;
-  error: null;
-};
 
 const initialCitiesState: initialCitiesStateTypes = {
   request: false,

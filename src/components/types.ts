@@ -8,7 +8,7 @@ type SisType = {
 
 type CityType = {
   weather?: Array<WeatherOfCity>;
-  name: string;
+  name?: string;
   sys?: SisType;
 };
 

@@ -1,3 +1,4 @@
+import { State, Data } from "./types";
 export const SET_WEATHER = "SET_WEATHER";
 
 export const API_KEY = "48a59b3d36409c2886af9f5b8a83155b";
@@ -12,7 +13,7 @@ export const fetchCititesRequest = () => {
   return { type: FETCH_CITIES_REQUEST };
 };
 
-export const fetchCitiesSuccess = (data: object) => {
+export const fetchCitiesSuccess = (data: Data) => {
   return {
     type: FETCH_CITIES_SUCCESS,
     payload: data,
@@ -46,4 +47,5 @@ export const fetchCities = (value: string) => {
   };
 };
 
-export const getCitiesSelector = (state: any) => state.getCitiesReducer.cities;
+export const getCitiesSelector = (state: State) =>
+  state.getCitiesReducer.cities;

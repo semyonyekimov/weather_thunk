@@ -1,8 +1,12 @@
 import React from "react";
+import { ThunkDispatch } from "redux-thunk";
+import { Action } from "redux";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { fetchCities, getCitiesSelector } from "../redux/actions";
 import { SearchType } from "../components/types";
+import { State } from "../redux/types";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,6 +28,8 @@ const SearchDump: SearchType = ({ fetchCities, city }) => {
     setInputValue(value);
   };
 
+  console.log(city);
+
   return (
     <Container>
       <Input
@@ -41,13 +47,15 @@ const SearchDump: SearchType = ({ fetchCities, city }) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({ city: getCitiesSelector(state) });
+const mapStateToProps = (state: State) => ({
+  city: getCitiesSelector(state),
+});
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    fetchCities: (value: string) => dispatch(fetchCities(value)),
-  };
-};
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<{}, undefined, Action>
+) => ({
+  fetchCities: (value: string) => dispatch(fetchCities(value)),
+});
 
 const Search = connect(mapStateToProps, mapDispatchToProps)(SearchDump);
 
