@@ -51,9 +51,7 @@ const mapStateToProps = (state: State) => ({
   city: getCitiesSelector(state),
 });
 
-const mapDispatchToProps = (
-  dispatch: ThunkDispatch<{}, undefined, Action>
-) => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, State, Action>) => ({
   fetchCities: (value: string) => dispatch(fetchCities(value)),
 });
 
